@@ -2,11 +2,12 @@
 ## Date:26/09/24 
 
 ## AIM
-To develop a Django application to store and retrieve data from a Train database using Object Relational Mapping(ORM).
+To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
-## ENTITY RELATIONSHIP DIAGRAM
+## Entity Relationship Diagram
 
-<img width="493" alt="315949707-cf94daf7-9d13-4ec6-8691-3c3db8533e7e" src="https://github.com/user-attachments/assets/37d1b237-273b-446a-9bba-df08fef4d5e6">
+![Screenshot 2024-09-26 161605](https://github.com/user-attachments/assets/7a6f9641-1321-4d80-982c-2bba81207616)
+
 
 ## DESIGN STEPS
 
@@ -24,32 +25,32 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 
+```
 admin.py
-```
+
 from django.contrib import admin
-
-from .models import Train, TrainAdmin
-
-admin.site.register(Train, TrainAdmin)
-```
+from .models import Book_DB,Book_DBAdmin
+admin.site.register(Book_DB,Book_DBAdmin)
 
 models.py
-```
+
 from django.db import models
 from django.contrib import admin
-class Train(models.Model):
-    Train_code=models.CharField(max_length=20,primary_key=True)
-    Train_name=models.CharField(max_length=100)
-    start_time=models.DateTimeField()
-    End_time=models.DateTimeField()
-    start_station_code=models.CharField(max_length=20)
-    End_station_code=models.CharField(max_length=20)
- 
-class TrainAdmin(admin.ModelAdmin):
-    list_display=('Train_code','Train_name','start_time','End_time','start_station_code','End_station_code')
+class Book_DB(models.Model):
+      sno=models.IntegerField(primary_key="sno")
+      name=models.CharField(max_length=50)
+      author=models.CharField(max_length=70)
+      price=models.IntegerField()
+      publisher=models.CharField(max_length=60)
+
+class Book_DBAdmin(admin.ModelAdmin):
+    list_display=("sno","name","author","price","publisher")
+
 ```
 ## OUTPUT
-![Screenshot 2024-09-26 061018](https://github.com/user-attachments/assets/a6e6cde7-3b55-4558-a2fb-a4c18baa9b31)
+![Screenshot 2024-09-26 161642](https://github.com/user-attachments/assets/1513a17a-7f68-4111-9174-6ea0d9016bfa)
+
+
 
 
 ## RESULT
